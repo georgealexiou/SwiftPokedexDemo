@@ -139,7 +139,7 @@ private struct Sprite: View {
                 image
                     .resizable()
                     .aspectRatio(1, contentMode: .fit)
-                    .background(backgroundColor != nil ? color : .clear)
+                    .background(backgroundColor != nil ? backgroundColor : .clear)
                     .cornerRadius(10)
             } placeholder: {
                 LoadingView(size:50)
