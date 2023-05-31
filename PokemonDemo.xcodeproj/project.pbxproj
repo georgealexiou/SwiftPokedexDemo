@@ -89,7 +89,7 @@
 		86A825662A26A5D5002804DF = {
 			isa = PBXGroup;
 			children = (
-				86A825712A26A5D5002804DF /* PokemonDemo */,
+				86A825712A26A5D5002804DF /* src */,
 				86A825832A26A5D6002804DF /* PokemonDemoTests */,
 				86A8258D2A26A5D6002804DF /* PokemonDemoUITests */,
 				86A825702A26A5D5002804DF /* Products */,
@@ -106,7 +106,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		86A825712A26A5D5002804DF /* PokemonDemo */ = {
+		86A825712A26A5D5002804DF /* src */ = {
 			isa = PBXGroup;
 			children = (
 				86A825B22A27724E002804DF /* components */,
@@ -119,7 +119,7 @@
 				86A825782A26A5D6002804DF /* PokemonDemo.entitlements */,
 				86A825792A26A5D6002804DF /* Preview Content */,
 			);
-			path = PokemonDemo;
+			path = src;
 			sourceTree = "<group>";
 		};
 		86A825792A26A5D6002804DF /* Preview Content */ = {
@@ -479,10 +479,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = PokemonDemo/PokemonDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PokemonDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"src/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -515,10 +514,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = PokemonDemo/PokemonDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PokemonDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"src/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
