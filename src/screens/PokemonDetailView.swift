@@ -4,8 +4,9 @@ import Combine
 struct PokemonDetailView: View {
     var pokemon:Pokemon
     
-    let imageURL = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"
     @StateObject var viewModel: PokemonDetailViewModel
+    
+    let imageURL = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"
     
     init(pokemon: Pokemon) {
         self.pokemon = pokemon
@@ -29,7 +30,6 @@ struct PokemonDetailView: View {
                 AsyncImage(url: URL(string: "\(imageURL)\(formatNumber(id: pokemon.id)).png")) { image in
                     image
                         .resizable()
-                        .frame(width:.infinity)
                         .aspectRatio(contentMode: .fit)
                 } placeholder: {
                     LoadingView(size:60)
@@ -99,71 +99,6 @@ struct PokemonDetailView: View {
         }
         .navigationBarTitle(pokemon.name)
         .padding()
-    }
-}
-
-private struct StatBar:View{
-    var title:String
-    var value:Int
-    var max:Int
-    var color:Color?
-    
-    var body: some View {
-        HStack{
-            HStack{
-                Text(title.capitalized)
-                Spacer()
-            }
-            .frame(width:135)
-            ProgressView(value:Float(value)/Float(max))
-                .tint(color ?? .clear)
-            
-            HStack{
-                Spacer()
-                Text("\(Int(value))")
-            }
-            .frame(width:40)
-
-        }
-    }
-}
-
-private struct Sprite: View {
-    var spriteURL: String
-    var text: String
-    var backgroundColor: Color?
-    
-    var body: some View {
-        VStack{
-            AsyncImage(url: URL(string: spriteURL)) { image in
-                image
-                    .resizable()
-                    .aspectRatio(1, contentMode: .fit)
-                    .background(backgroundColor != nil ? backgroundColor : .clear)
-                    .cornerRadius(10)
-            } placeholder: {
-                LoadingView(size:50)
-            }
-            Text(text)
-        }
-    }
-}
-
-private struct DetailRow: View{
-    var title:String
-    var content: String
-    var color: Color?
-    
-    var body: some View {
-        HStack{
-            Text(title)
-                .bold()
-                .foregroundColor(color)
-            Spacer()
-            Text(content)
-        }
-        .frame(maxWidth: 250)
-        .padding(.horizontal)
     }
 }
 
