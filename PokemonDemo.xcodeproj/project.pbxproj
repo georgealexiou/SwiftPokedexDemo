@@ -20,6 +20,7 @@
 		86A825B12A276CF7002804DF /* colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A825B02A276CF7002804DF /* colors.swift */; };
 		86A825B42A27725F002804DF /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A825B32A27725F002804DF /* Types.swift */; };
 		86A825B62A277560002804DF /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A825B52A277560002804DF /* utils.swift */; };
+		86A825B82A277D31002804DF /* pokeApiTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A825B72A277D31002804DF /* pokeApiTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		86A825B02A276CF7002804DF /* colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colors.swift; sourceTree = "<group>"; };
 		86A825B32A27725F002804DF /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		86A825B52A277560002804DF /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
+		86A825B72A277D31002804DF /* pokeApiTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeApiTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			children = (
 				86A825B02A276CF7002804DF /* colors.swift */,
 				86A825B52A277560002804DF /* utils.swift */,
+				86A825B72A277D31002804DF /* pokeApiTypes.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A825B82A277D31002804DF /* pokeApiTypes.swift in Sources */,
 				86A825752A26A5D5002804DF /* PokemonDetailView.swift in Sources */,
 				86A825B62A277560002804DF /* utils.swift in Sources */,
 				86A825B12A276CF7002804DF /* colors.swift in Sources */,
