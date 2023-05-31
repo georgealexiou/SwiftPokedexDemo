@@ -1,10 +1,3 @@
-//
-//  colors.swift
-//  PokemonDemo
-//
-//  Created by George Alexiou on 31/05/2023.
-//
-
 import SwiftUI
 
 let pokemonTypeColors: [String: Color] = [
