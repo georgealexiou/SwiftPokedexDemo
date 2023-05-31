@@ -3,7 +3,7 @@ import SwiftUI
 struct LoadingView: View {
     var size: CGFloat
     @State private var isRotating = false
-
+    
     var body: some View {
         Image("pokeball")
             .resizable()
