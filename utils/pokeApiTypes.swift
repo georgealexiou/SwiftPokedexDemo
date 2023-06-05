@@ -3,7 +3,7 @@ import Foundation
 struct PokemonDetail: Codable {
     let id: Int
     let name: String
-    let base_experience: Int
+    let baseExperience: Int
     let height: Int
     let weight: Int
     let sprites: PokemonSprites
@@ -13,14 +13,14 @@ struct PokemonDetail: Codable {
 }
 
 struct PokemonSprites: Codable {
-    let front_default: String?
-    let front_shiny: String?
-    let front_female: String?
-    let front_shiny_female: String?
-    let back_default: String?
-    let back_shiny: String?
-    let back_female: String?
-    let back_shiny_female: String?
+    let frontDefault: String?
+    let frontShiny: String?
+    let frontFemale: String?
+    let frontFemaleShiny: String?
+    let backDefault: String?
+    let backShiny: String?
+    let backFemale: String?
+    let backFemaleShiny: String?
 }
 
 struct PokemonType: Codable {
@@ -35,7 +35,7 @@ struct TypeDetail: Codable {
 
 struct PokemonAbility: Codable {
     let ability: AbilityDetail
-    let is_hidden: Bool
+    let isHidden: Bool
     let slot: Int
 }
 
@@ -45,7 +45,7 @@ struct AbilityDetail: Codable {
 }
 
 struct PokemonStat: Codable {
-    let base_stat: Int
+    let base: Int
     let effort: Int
     let stat: StatDetail
 }
