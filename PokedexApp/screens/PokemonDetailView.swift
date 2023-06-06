@@ -82,17 +82,20 @@ class PokemonDetailViewModel: ObservableObject {
     init(pokemon: Pokemon? = nil) {
         if let pokemon = pokemon {
             fetchPokemonData(for: pokemon.name.lowercased())
-                .sink { completion in
+                .receive(on: DispatchQueue.main)
+                .sink(receiveCompletion: { completion in
                     switch completion {
-                    case let .failure(error):
+                    case .failure(let error):
                         print("Error fetching data: \(error)")
                     case .finished:
                         break
                     }
-                } receiveValue: { pokemonDetail in
+                }, receiveValue: { pokemonDetail in
                     self.pokemonDetail = pokemonDetail
-                }
+                })
                 .store(in: &cancellables)
+        } else {
+            self.pokemonDetail = nil
         }
     }
     
