@@ -39,7 +39,8 @@ struct FeaturedPokemonWidgetLiveActivity: Widget {
             } compactLeading: {
                 Text("L")
             } compactTrailing: {
-                Text("T")
+
+                    Image("pokeball")
             } minimal: {
                 Text("Min")
             }
