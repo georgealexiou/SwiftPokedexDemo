@@ -3,19 +3,18 @@ import SwiftUI
 
 struct PokemonDetailView: View {
     var pokemon: Pokemon
-
-    @StateObject var viewModel: PokemonDetailViewModel
-
+    @StateObject var viewModel = PokemonDetailViewModel()
+    
     init(pokemon: Pokemon) {
         self.pokemon = pokemon
         _viewModel = StateObject(wrappedValue: PokemonDetailViewModel(pokemon: pokemon))
     }
-
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             PokemonCard(pokemon: pokemon)
             Types(types: pokemon.types)
-
+            
             if let pokemonDetail = viewModel.pokemonDetail {
                 HStack {
                     Text("Stats")
@@ -23,7 +22,7 @@ struct PokemonDetailView: View {
                         .bold()
                     Spacer()
                 }
-
+                
                 VStack {
                     ForEach(pokemonDetail.stats, id: \.stat.name) { stat in
                         StatBar(
@@ -35,7 +34,7 @@ struct PokemonDetailView: View {
                     }
                 }
                 .padding(.bottom)
-
+                
                 HStack {
                     Text("Sprites")
                         .font(.title2)
@@ -57,7 +56,7 @@ struct PokemonDetailView: View {
                         backgroundColor: Color(UIColor.systemGray5)
                     )
                 }
-
+                
                 VStack {
                     DetailRow(title: "Height", content: "\(pokemonDetail.height)")
                     DetailRow(title: "Weight", content: "\(pokemonDetail.weight)")
@@ -67,7 +66,7 @@ struct PokemonDetailView: View {
             } else {
                 Text("Information about this Pokemon could not be accessed at this time")
             }
-
+            
             Spacer()
         }
         .navigationBarTitle(pokemon.name)
@@ -77,24 +76,26 @@ struct PokemonDetailView: View {
 
 class PokemonDetailViewModel: ObservableObject {
     @Published var pokemonDetail: PokemonDetail?
-
+    
     var cancellables = Set<AnyCancellable>()
-
-    init(pokemon: Pokemon) {
-        fetchPokemonData(for: pokemon.name.lowercased())
-            .sink { completion in
-                switch completion {
-                case let .failure(error):
-                    print("Error fetching data: \(error)")
-                case .finished:
-                    break
+    
+    init(pokemon: Pokemon? = nil) {
+        if let pokemon = pokemon {
+            fetchPokemonData(for: pokemon.name.lowercased())
+                .sink { completion in
+                    switch completion {
+                    case let .failure(error):
+                        print("Error fetching data: \(error)")
+                    case .finished:
+                        break
+                    }
+                } receiveValue: { pokemonDetail in
+                    self.pokemonDetail = pokemonDetail
                 }
-            } receiveValue: { pokemonDetail in
-                self.pokemonDetail = pokemonDetail
-            }
-            .store(in: &cancellables)
+                .store(in: &cancellables)
+        }
     }
-
+    
     func fetchPokemonData(for pokemonName: String) -> Future<PokemonDetail, Error> {
         return Future { promise in
             let urlString = "https://pokeapi.co/api/v2/pokemon/\(pokemonName)"

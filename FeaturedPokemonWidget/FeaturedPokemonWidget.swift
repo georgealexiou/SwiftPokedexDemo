@@ -116,6 +116,7 @@ struct FeaturedPokemonWidgetEntryView: View {
                 endPoint: .bottomTrailing
             )
         )
+        .widgetURL(URL(string: "pokemonApp://details"))
     }
 }
 

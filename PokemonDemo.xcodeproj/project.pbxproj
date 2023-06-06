@@ -118,6 +118,7 @@
 		86E577142A2DDE6000AAA8BC /* PokemonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCard.swift; sourceTree = "<group>"; };
 		86E577172A2DDFED00AAA8BC /* simpleTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simpleTypes.swift; sourceTree = "<group>"; };
 		86E577202A2E335B00AAA8BC /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		86F404042A2F374A00106914 /* PokemonDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "PokemonDemo-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +158,7 @@
 		86A825662A26A5D5002804DF = {
 			isa = PBXGroup;
 			children = (
+				86F404042A2F374A00106914 /* PokemonDemo-Info.plist */,
 				86E577202A2E335B00AAA8BC /* .swiftlint.yml */,
 				86A825AF2A276CEB002804DF /* utils */,
 				86A825712A26A5D5002804DF /* PokedexApp */,
@@ -661,6 +663,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PokedexApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PokemonDemo-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -697,6 +700,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"PokedexApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "PokemonDemo-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
