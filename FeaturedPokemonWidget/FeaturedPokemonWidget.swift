@@ -81,43 +81,24 @@ struct Provider: IntentTimelineProvider {
 
 struct FeaturedPokemonWidgetEntryView: View {
     var entry: Provider.Entry
-    
-    var body: some View {
-        let pokemon = entry.pokemon
-        VStack {
-            Text("#\(formatNumber(id: pokemon.id))")
-                .font(.title)
-                .bold()
-                .foregroundColor(.black)
-                .opacity(0.6)
-                .padding(.bottom)
+    @Environment(\.widgetFamily) var family
+
+        @ViewBuilder
+        var body: some View {
             
-            Image(uiImage: entry.pokemonImage)
-                .resizable()
-                .aspectRatio(1, contentMode: .fit)
-            
-            Text("\(pokemon.name.capitalized)")
-                .font(.title2)
-                .bold()
-                .foregroundColor(.white)
-                .opacity(0.8)
+            switch family {
+            case .systemSmall:
+                SmallView(pokemon: entry.pokemon, image: entry.pokemonImage)
+            case .systemMedium:
+                MediumView(pokemon: entry.pokemon, image: entry.pokemonImage)
+            case .systemLarge:
+                LargeView(pokemon: entry.pokemon, image: entry.pokemonImage)
+            default:
+                Text("Some other WidgetFamily in the future.")
+            }
+
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .padding()
-        .background(
-            LinearGradient(
-                gradient: Gradient(
-                    colors: [
-                        typeColorsBackground[pokemon.types.first?.lowercased() ?? ""] ?? .clear,
-                        pokemonTypeColors[pokemon.types.first?.lowercased() ?? ""] ?? .clear
-                    ]
-                ),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        )
-        .widgetURL(URL(string: "pokemonApp://details"))
-    }
+    
 }
 
 struct SimpleEntry: TimelineEntry {
@@ -145,8 +126,8 @@ struct FeaturedPokemonWidget_Previews: PreviewProvider {
             entry: SimpleEntry(
                 date: Date(),
                 configuration: ConfigurationIntent(),
-                pokemon: Pokemon(id: 909, name: "Fuecoco", types: ["Fire"]),
-                pokemonImage: UIImage(named: "fuecoco") ?? UIImage()
+                pokemon: Pokemon(id: 1000, name: "Gholdengo", types: ["Steel", "Ghost"]),
+                pokemonImage: UIImage(named: "gholdengo") ?? UIImage()
             )
         )
         .previewContext(WidgetPreviewContext(family: .systemSmall))

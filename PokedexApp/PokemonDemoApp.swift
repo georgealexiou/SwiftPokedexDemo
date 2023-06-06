@@ -22,6 +22,5 @@ struct PokemonDemoApp: App {
         }
         
         let pokemon = Pokemon(id: id, name: "", types: [""]) // Initialize with id, name and types should be filled later in viewModel
-        viewModel.fetchPokemonData(for: String(id))
     }
 }
