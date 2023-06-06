@@ -1,28 +1,22 @@
 import Foundation
 import SwiftUI
 
-struct Pokemon: Codable {
-    let id: Int
-    let name: String
-    let types: [String]
-}
-
 struct PokemonSearchBar: View {
     @State private var searchText = ""
     @State private var filteredPokemon: [Pokemon] = []
     @State private var isSearching = false
-    
+
     private var imageURL = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
-    
+
     var body: some View {
-        NavigationView{
+        NavigationView {
             VStack {
                 SearchBar(text: $searchText, isSearching: $isSearching, onSearchButtonClicked: {})
                     .padding(.horizontal)
-                
+
                 List(filteredPokemon, id: \.name) { pokemon in
                     NavigationLink(destination: PokemonDetailView(pokemon: pokemon)) {
-                        HStack{
+                        HStack {
                             AsyncImage(url: URL(string: "\(imageURL)\(pokemon.id).png")) { image in
                                 image
                                     .resizable()
@@ -44,11 +38,11 @@ struct PokemonSearchBar: View {
                 }
             }
             .onChange(of: searchText) { _ in
-                if (searchText.isEmpty) {
+                if searchText.isEmpty {
                     getInitialList()
                     return
                 }
-                
+
                 searchPokemon()
             }
             .onAppear {
@@ -56,12 +50,12 @@ struct PokemonSearchBar: View {
             }
         }
     }
-    
+
     private func getInitialList() {
         guard let fileURL = Bundle.main.url(forResource: "pokemonData", withExtension: "json") else {
             return
         }
-        
+
         do {
             let jsonData = try Data(contentsOf: fileURL)
             filteredPokemon = try JSONDecoder().decode([Pokemon].self, from: jsonData)
@@ -69,21 +63,21 @@ struct PokemonSearchBar: View {
             print("Error decoding JSON: \(error)")
         }
     }
-    
+
     private func searchPokemon() {
         guard let fileURL = Bundle.main.url(forResource: "pokemonData", withExtension: "json") else {
             return
         }
-        
+
         do {
             let jsonData = try Data(contentsOf: fileURL)
             let decodedData = try JSONDecoder().decode([Pokemon].self, from: jsonData)
-            
+
             filteredPokemon = decodedData.filter {
                 let range = $0.name.range(of: searchText, options: .caseInsensitive)
                 return range != nil
             }
-            
+
             isSearching = false
         } catch {
             print("Error decoding JSON: \(error)")
@@ -95,7 +89,7 @@ struct SearchBar: View {
     @Binding var text: String
     @Binding var isSearching: Bool
     var onSearchButtonClicked: () -> Void
-    
+
     var body: some View {
         HStack {
             TextField("Search", text: $text, onEditingChanged: { isEditing in
@@ -110,7 +104,6 @@ struct SearchBar: View {
         .cornerRadius(10)
     }
 }
-
 
 struct SearchBarPreview: PreviewProvider {
     static var previews: some View {

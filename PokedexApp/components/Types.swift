@@ -3,14 +3,13 @@ import Foundation
 import SwiftUI
 
 struct Types: View {
-    var types:[String]
-    
+    var types: [String]
+
     var body: some View {
-        
-        HStack(){
-            Type(type:types[0])
-            if types.count == 2{
-                Type(type:types[1])
+        HStack {
+            Type(type: types[0])
+            if types.count == 2 {
+                Type(type: types[1])
             }
         }
     }
@@ -18,9 +17,9 @@ struct Types: View {
 
 private struct Type: View {
     var type: String
-    
+
     var body: some View {
-        VStack{
+        VStack {
             Text(type.capitalized)
         }
         .padding(3)
@@ -34,6 +33,6 @@ private struct Type: View {
 
 struct PokemonTypesPreview: PreviewProvider {
     static var previews: some View {
-        Types(types:["Grass","Poison"])
+        Types(types: ["Fire", "Water"])
     }
 }

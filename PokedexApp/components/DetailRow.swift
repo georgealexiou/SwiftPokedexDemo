@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct DetailRow: View{
-    var title:String
+struct DetailRow: View {
+    var title: String
     var content: String
     var color: Color?
-    
+
     var body: some View {
-        HStack{
+        HStack {
             Text(title)
                 .bold()
                 .foregroundColor(color)

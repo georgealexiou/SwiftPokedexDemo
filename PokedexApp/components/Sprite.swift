@@ -4,9 +4,9 @@ struct Sprite: View {
     var spriteURL: String
     var text: String
     var backgroundColor: Color?
-    
+
     var body: some View {
-        VStack{
+        VStack {
             AsyncImage(url: URL(string: spriteURL)) { image in
                 image
                     .resizable()
@@ -14,7 +14,7 @@ struct Sprite: View {
                     .background(backgroundColor != nil ? backgroundColor : .clear)
                     .cornerRadius(10)
             } placeholder: {
-                LoadingView(size:50)
+                LoadingView(size: 50)
             }
             Text(text)
         }
