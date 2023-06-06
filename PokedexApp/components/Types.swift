@@ -33,6 +33,6 @@ private struct Type: View {
 
 struct PokemonTypesPreview: PreviewProvider {
     static var previews: some View {
-        Types(types: ["Grass", "Poison"])
+        Types(types: ["Fire", "Water"])
     }
 }

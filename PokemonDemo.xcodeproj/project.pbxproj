@@ -43,6 +43,7 @@
 		86E5771D2A2DE11600AAA8BC /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A825AB2A27517A002804DF /* LoadingView.swift */; };
 		86E5771E2A2DE1A400AAA8BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A825762A26A5D6002804DF /* Assets.xcassets */; };
 		86E577212A2E335B00AAA8BC /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 86E577202A2E335B00AAA8BC /* .swiftlint.yml */; };
+		86E577222A2E9A2E00AAA8BC /* pokemonData.json in Resources */ = {isa = PBXBuildFile; fileRef = 86A825BA2A279032002804DF /* pokemonData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -433,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E577222A2E9A2E00AAA8BC /* pokemonData.json in Resources */,
 				86E5771E2A2DE1A400AAA8BC /* Assets.xcassets in Resources */,
 				86CD9C012A27DF1D00CBBD51 /* Assets.xcassets in Resources */,
 			);
@@ -443,6 +445,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		86E5771F2A2E32F100AAA8BC /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
